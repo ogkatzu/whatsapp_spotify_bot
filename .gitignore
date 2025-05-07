@@ -1,0 +1,5 @@
+.env
+/auth
+
+auth.js
+/node_modules
