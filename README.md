@@ -58,9 +58,9 @@ By default, the bot will log all group IDs when it receives messages. To restric
 
 1. Run the bot and send a message in the target group
 2. Note the group ID that appears in the console
-3. Add the group ID to the `allowedGroups` array in `index.js`:
+3. Edit this line the group ID to the `ALLOWED_GROUP` array in `index.js`:
    ```javascript
-   const allowedGroups = [
+   const ALLOWED_GROUP = [
      '123456789-123456789@g.us',
      // Add more group IDs here
    ];
