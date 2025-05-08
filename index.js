@@ -32,6 +32,8 @@ async function startBot() {
     }
   });
 
+  const ALLOWED_GROUP = '120363030050430190@g.us';
+
   sock.ev.on('messages.upsert', async ({ messages }) => {
     for (let msg of messages) {
       // Skip if the message doesn't exist
@@ -54,8 +56,11 @@ async function startBot() {
 
       // Check if this is from a group (remoteJid will contain '-' for groups)
       const isGroup = msg.key.remoteJid.includes('@g.us');
-
+      if (!isGroup || msg.key.remoteJid !== ALLOWED_GROUP) {
+        continue; // Skip if not from your group
+      }
       // Process the message
+
       const spotifyRegex = /https?:\/\/open\.spotify\.com\/(track|album)\/[a-zA-Z0-9]+/g;
       const matches = text.match(spotifyRegex);
 
