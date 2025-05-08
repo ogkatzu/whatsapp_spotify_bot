@@ -32,7 +32,7 @@ async function startBot() {
     }
   });
 
-  const ALLOWED_GROUP = '120363030050430190@g.us';
+  const ALLOWED_GROUP = process.env.ALLOWED_GROUP_ID;
 
   sock.ev.on('messages.upsert', async ({ messages }) => {
     for (let msg of messages) {
